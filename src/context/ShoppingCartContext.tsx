@@ -1,38 +1,26 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import ShoppingCart from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import {
+  CartItem,
+  ShoppingCartContextType,
+  ShoppingCartProviderProps,
+} from "../types/types";
 
-type ShoppingCartProviderProps = {
-  children: ReactNode;
-};
+//context
+const ShoppingCartContext = createContext({} as ShoppingCartContextType);
 
-type CartItem = {
-  id: number;
-  quantity: number;
-};
-
-type ShoppingCartContext = {
-  openCart: () => void;
-  closeCart: () => void;
-  getItemQuantity: (id: number) => number;
-  increaseCartQuantity: (id: number) => void;
-  decreaseCartQuantity: (id: number) => void;
-  removeFromCart: (id: number) => void;
-
-  cartQuantity: number;
-  cartItems: CartItem[];
-};
-
-const ShoppingCartContext = createContext({} as ShoppingCartContext);
-
+//useContext
 export const useShoppingCart = () => {
   return useContext(ShoppingCartContext);
 };
 
+//Provider Wrapper
 export const ShoppingCartProvider = ({
   children,
 }: ShoppingCartProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  // used custom hook for storing and retriving data in local storage
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
@@ -40,6 +28,7 @@ export const ShoppingCartProvider = ({
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+
   const getItemQuantity = (id: number) => {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   };
@@ -84,6 +73,7 @@ export const ShoppingCartProvider = ({
     (quantity, item) => item.quantity + quantity,
     0
   );
+
   return (
     <ShoppingCartContext.Provider
       value={{

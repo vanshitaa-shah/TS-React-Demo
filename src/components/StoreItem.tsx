@@ -1,14 +1,9 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { StoreItemProps } from "../types/types";
 import { formatCurrency } from "../utilities/formatCurrency";
 
-type StoreItemProps = {
-  id: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
 const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
   const {
     getItemQuantity,
@@ -26,6 +21,7 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
         height="200px"
         style={{ objectFit: "cover" }}
       />
+      {/* card body */}
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
           <span className="fs-2">{name}</span>
