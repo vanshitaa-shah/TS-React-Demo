@@ -1,17 +1,30 @@
 # TS-React-Demo
 
+- [Demo Link](https://ts-react-demo-shopping-cart.netlify.app/)
 - This project is a shopping cart application built using TypeScript and React.js.
 - It incorporates advanced TypeScript and React features, including generics, custom hooks, and context management.
 
-### Technologies used:
+---
+
+## Technologies used:
 
 - Reactjs
 - Typescript
 - Bootstrap
 
-### Folder Structure :
+## Folder Structure :
 
     .
+    ├── dist
+    │   ├── assets
+    │   │   ├── index-4e5c0698.css
+    │   │   └── index-5f3fbfcc.js
+    │   ├── imgs
+    │   │   ├── banana.jpg
+    │   │   ├── book.jpg
+    │   │   ├── car.jpg
+    │   │   └── computer.jpg
+    │   └── index.html
     ├── index.html
     ├── package.json
     ├── package-lock.json
@@ -23,7 +36,6 @@
     │       └── computer.jpg
     ├── README.md
     ├── src
-    │   ├── App.css
     │   ├── App.tsx
     │   ├── components
     │   │   ├── CartItem.tsx
@@ -41,6 +53,8 @@
     │   │   ├── About.tsx
     │   │   ├── Home.tsx
     │   │   └── Store.tsx
+    │   ├── types
+    │   │   └── types.ts
     │   ├── utilities
     │   │   └── formatCurrency.ts
     │   └── vite-env.d.ts
@@ -52,7 +66,37 @@
 - Local storage is utilized for data persistence.
 - Indian Rupees (INR) are used for currency formatting..
 
-### Git Strategy
+---
+
+## Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/vanshitaa-shah/TS-React-Demo.git
+   ```
+
+2. For charts : Navigate to the Charts directory and install dependencies:
+
+   ```bash
+   cd TS-React-Demo
+   npm install
+   npm run dev
+   ```
+
+---
+
+## Learn more
+
+Explore the documentation to deepen your understanding
+
+[React](https://react.dev/learn)
+
+[Typescript](https://www.typescriptlang.org/docs/)
+
+---
+
+## Git Strategy
 
 **Branches** :
 
